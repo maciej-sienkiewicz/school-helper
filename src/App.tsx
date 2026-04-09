@@ -11,6 +11,9 @@ import TestCreatorPage from '@/features/teacher/tests/TestCreatorPage'
 import TestResultsPage from '@/features/teacher/tests/TestResultsPage'
 import AnalyticsPage from '@/features/teacher/analytics/AnalyticsPage'
 import ProfilePage from '@/features/teacher/profile/ProfilePage'
+import StudentLayout from '@/features/student/layout/StudentLayout'
+import StudentDashboardPage from '@/features/student/dashboard/StudentDashboardPage'
+import SubjectPage from '@/features/student/subject/SubjectPage'
 
 export default function App() {
   return (
@@ -29,6 +32,10 @@ export default function App() {
           <Route path="tests/:id/results" element={<TestResultsPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="profile" element={<ProfilePage />} />
+        </Route>
+        <Route path="/student" element={<StudentLayout />}>
+          <Route index element={<StudentDashboardPage />} />
+          <Route path="subject/:subjectName" element={<SubjectPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/teacher/dashboard" replace />} />
       </Routes>
